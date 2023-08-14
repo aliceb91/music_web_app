@@ -16,6 +16,14 @@ app = Flask(__name__)
 def get_emoji():
     return ":)"
 
+@app.route('/albums', methods=['POST'])
+def add_album_to_database():
+    # Given a body of album data
+    # It adds the data to the databse.
+    title = request.form['title']
+    release_year = request.form['release_year']
+    artist_id = request.form['artist_id']
+
 # This imports some more example routes for you to see how they work
 # You can delete these lines if you don't need them.
 from example_routes import apply_example_routes
