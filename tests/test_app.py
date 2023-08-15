@@ -1,5 +1,6 @@
 from lib.album import Album
 import json
+import pytest
 
 # Tests for your routes go here
 
@@ -39,6 +40,27 @@ def test_create_new_album(web_client):
     # It creates a new album entry in the database and returns a 200 status code.
     response = web_client.post("/albums", data={'title': 'Voyage', 'release_year': '2022', 'artist_id': 2})
     assert response.status_code == 200
+
+"""
+GET /artists
+"""
+def test_get_artists(web_client, db_connection):
+    # Given a GET requests
+    # It returns a list of all artist names.
+    db_connection.seed('seeds/artists_table.sql')
+    response = web_client.get('/artists')
+    assert response.status_code == 200
+    assert response.data.decode("utf-8") == 'Pixies, ABBA, Taylor Swift, Nina Simone'
+
+"""
+POST /artists
+"""
+def test_add_new_artist(web_client, db_connection):
+    db_connection.seed('seeds/artists_table.sql')
+    web_client.post('/artists', data={'name': 'Wild nothing', 'genre': 'Indie'})
+    response = web_client.get('/artists')
+    assert response.status_code == 200
+    assert response.data.decode("utf-8") == "Pixies, ABBA, Taylor Swift, Nina Simone, Wild nothing"
 
 # === Example Code Below ===
 
