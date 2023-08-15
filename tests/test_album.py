@@ -9,7 +9,7 @@ def test_creates_valid_album():
 
 def test_outputs_album_data():
     album = Album(4, "Hello", 1991, 3)
-    assert str(album) == "4, Hello, 1991, 3"
+    assert str(album) == "Album(4, Hello, 1991, 3)"
 
 def test_class_comparison():
     album_1 = Album(2, "Goodbye", 1976, 5)

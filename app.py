@@ -18,10 +18,7 @@ def get_albums():
     connection = get_flask_database_connection(app)
     repository = AlbumRepository(connection)
     all_albums = repository.all()
-    final_list = []
-    for album in all_albums:
-        final_list.append(album.__dict__)
-    return final_list
+    return all_albums
 
 @app.route('/albums', methods=['POST'])
 def add_album_to_database():

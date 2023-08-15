@@ -11,11 +11,11 @@ class ArtistRepository():
     def all(self):
         # Pulls all artists from database and returns their names as a list.
         rows = self._connection.execute('SELECT * FROM artists')
-        artists = ""
+        artists = []
         for row in rows:
-            item = row["name"]
-            artists += item + ", "
-        return artists[:-2]
+            item = Artist(row["id"], row["name"], row['genre'])
+            artists.append(item)
+        return str(artists)[1:-1]
 
     def create(self, artist):
         # Adds a new artist entry to the database.

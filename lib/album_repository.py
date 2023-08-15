@@ -10,7 +10,7 @@ class AlbumRepository():
         for row in rows:
             item = Album(row["id"], row["title"], row["release_year"], row["artist_id"])
             albums.append(item)
-        return albums
+        return str(albums)[1:-1]
 
     def create(self, album):
         # Creates a new entry in the albums table
