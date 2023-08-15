@@ -42,7 +42,7 @@ artist_id=2
 ```
 
 # Examples
-```Python
+```python
 # POST /albums
 #   Parameters:
 #       title: Voyage
