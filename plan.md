@@ -20,11 +20,11 @@ albums, titles, release_years
 
 # Types
 
-album:
-    id: SERIAL
-    title: text
-    release_year: int
-    artist_id: int
+album:\
+    id: SERIAL\
+    title: text\
+    release_year: int\
+    artist_id: int\
 
 # Route Signature
 ```
@@ -50,6 +50,6 @@ artist_id=2
 #       artist_id = 2
 #   Expected response (200 OK):
 """
-(No Response)
+(No Content)
 """
 ```
