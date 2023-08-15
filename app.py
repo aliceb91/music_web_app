@@ -9,6 +9,18 @@ app = Flask(__name__)
 
 # == Your Routes Here ==
 
+@app.route('/albums', methods=['GET'])
+def get_albums():
+    # Given a GET request
+    # It returns all current albums in the databse.
+    connection = get_flask_database_connection(app)
+    repository = AlbumRepository(connection)
+    all_albums = repository.all()
+    final_list = []
+    for album in all_albums:
+        final_list.append(album.__dict__)
+    return final_list
+
 @app.route('/albums', methods=['POST'])
 def add_album_to_database():
     # Given a body of album data

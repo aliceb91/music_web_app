@@ -29,6 +29,16 @@ album:\
 # Route Signature
 ```
 # Request
+GET /albums
+
+# With body parameters:
+none
+
+# Expected response
+(200 OK)
+(List of album data as dictionaries)
+
+# Request
 POST /albums
 
 # With body parameters:
