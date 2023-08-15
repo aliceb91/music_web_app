@@ -19,7 +19,8 @@ def add_album_to_database():
     connection = get_flask_database_connection(app)
     album = Album(None, title, release_year, artist_id)
     repository = AlbumRepository(connection)
-    repository.add(album)
+    repository.create(album)
+    return ('', 200)
 
 # == Example Code Below ==
 
